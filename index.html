@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <title>Meltdown and Spectre</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link href="https://fonts.googleapis.com/css?family=Geostar|Krona+One|Revalia|Rubik+Mono+One|Stalinist+One|Syncopate:400,700"
+  rel="stylesheet">
+  <link rel="stylesheet" type="text/css" media="screen" href="index.css" />
+</head>
+
+<body>
+  <section class="video-section hero">
+    <div>
+      <h1>Meltdown & Spectre</h1>
+      <h2>The research is in: every computer made in the last 30 years is comprimised.</h2>
+    </div>
+    <video class="hero-video flip" autoplay muted loop>
+      <source src="media/glitch.mp4" type="video/mp4"/>
+    </video>
+  </section>
+  <section class="content">
+    <article>
+      <header class="article-header">
+        <img src="https://miro.medium.com/fit/c/240/240/1*wIb1vM6oHEy4lY1aRVRrxw.jpeg" alt="avatar" class="avatar">
+
+        <div class="details">
+          <div class="name">Teffen Ellis</div>
+          <div class="summary">Seasoned web engineer, benched by my life coach.</div>
+          <div class="date">July 16th, 2018</div>
+        </div>
+      </header>
+
+      <p class="collapse-margin first-letter">
+        In late 2017 a group of university researchers discovered  &quot;Meltdown&quot;, a critical security flaw described as melting the virtual barriers that keep programs from accessing each other&#39;s data. Coincidentally, three other independent research groups have discovered similar security flaws in just a few months of each other, sparking widespread panic in the tech world.
+      </p>
+
+      <p>
+        Unlike most reports of software vulnerabilities, Meltdown originates from a common defect in computer processors — the silicon chips that power your devices. Shortly after researchers submitted their findings to Intel, the chip manufacturer was dealt another blow. Researchers Paul Kocher and the team at Project Zero independently reported &quot;Spectre&quot;, a similar hardware defect with devastating security implications.
+      </p>
+
+      <p>
+        Tech companies are now scrambling to find a solution to patch the vulnerabilities affecting most computers, tablets, and smart phones made in the past 30 years.
+      </p>
+
+      <div class="video-section">
+        <div>
+          <h2 id="a-ghost-in-the-machine">A Ghost In The Machine</h2>
+        </div>
+        <video class="hero-video" autoplay muted loop>
+          <source src="media/circuit-line.mp4" type="video/mp4" />
+        </video>
+      </div>
+
+      <p>
+        Spectre makes use of a defect in a processor&#39;s <em>speculative execution</em>, a technical term used to describe the predictions computers make to increase performance. Whether it&#39;s opening the Facebook app; taking a selfie; or checking your email; the tasks are common enough that a processor can predict what a user will do before they even decide to. If processor guesses correctly, things feel slightly faster.
+      </p>
+
+      <p>
+        Spectre attacks manipulate other apps into accidentally revealing their own private data. Like Meltdown, both types of attack could theoretically be used to find sensitive information as it&#39;s passed through the computer&#39;s processor. A simple flashlight app could use these processor flaws to secretly read an account number in a recently used bank app. Discovering when a malicious app is using these techniques is incredibly difficult, even with an anti-virus.
+      </p>
+
+
+      <div class="video-section">
+        <div>
+          <h2 id="imperfect-solutions">Imperfect Solutions</h2>
+        </div>
+        <video class="hero-video" autoplay muted loop>
+          <source src="media/digital-grid.mp4" type="video/mp4" />
+        </video>
+      </div>
+
+      <p>
+        Since publication of the research, companies such as Microsoft, Apple, and Intel have deployed a dizzying number of software updates to work around the hardware defects. Unfortunately reports of computer crashes and reduced performance have been in high frequency. Researchers explain that the software updates come at a price: slower hardware.
+      </p>
+
+      <blockquote>
+        ...we&#39;re looking at a ballpark figure of five to 30 per cent slow down, depending on the task and the processor model.
+        <a href="https://www.theregister.co.uk/2018/01/02/intel_cpu_design_flaw/">The Register</a>
+      </blockquote>
+
+      <p>
+        The trade off between speed and security may not be available to all consumers. Millions of older, unsupported devices will most likely not receive any updates. Hardware manufactures may instead recommend buying newer models to lower the chances of becoming a victim to Meltdown and Spectre attacks.
+      </p>
+
+      <p>
+        Researchers are still learning more about the damage done and software updates are still being released. Computers have been vulnerable to Meltdown and Spectre for decades and many will remain unpatched. You can reduce your chances of being a victim by taking steps to protect your digital identity — starting with your email account. A memorable, lengthy and unique password for each online account can significantly decrease the chances of an attacker taking control. Many online services can also send a special code to your phone to verify that your password isn&#39;t being use without your permission. This extra verification is recommended for other services such as your bank, Facebook, Instagram, and Dropbox.
+      </p>
+
+      <div class="center more-links">
+        <h2 id="learn-more-about-handling-meltdown-and-spectre">More Meltdown and Spectre</h2>
+
+        <p class="collapse-margin">
+          <a href="https://spectreattack.com/">An detailed explanation of the vulnerabilities and available updates</a> — Graz University of Technology
+          <br>
+          <a href="https://www.theverge.com/2017/6/17/15772142/how-to-set-up-two-factor-authentication">How to set up two-factor authentication on all your online accounts</a> — The Verge</p>
+        </p>
+      </div>
+
+      <h3 class="collapse-margin">Share the knowledge</h3>
+      <div class="center share-buttons">
+        <a class="button share-button" target="_blank" href="#">
+          <svg class="svg-inline--fa fa-twitter fa-w-16" aria-hidden="true" data-prefix="fab" data-icon="twitter" role="img" xmlns="http://www.w3.org/2000/svg"
+            viewBox="0 0 512 512" data-fa-i2svg="">
+            <path fill="#3aa1f2" d="M459.37 151.716c.325 4.548.325 9.097.325 13.645 0 138.72-105.583 298.558-298.558 298.558-59.452 0-114.68-17.219-161.137-47.106 8.447.974 16.568 1.299 25.34 1.299 49.055 0 94.213-16.568 130.274-44.832-46.132-.975-84.792-31.188-98.112-72.772 6.498.974 12.995 1.624 19.818 1.624 9.421 0 18.843-1.3 27.614-3.573-48.081-9.747-84.143-51.98-84.143-102.985v-1.299c13.969 7.797 30.214 12.67 47.431 13.319-28.264-18.843-46.781-51.005-46.781-87.391 0-19.492 5.197-37.36 14.294-52.954 51.655 63.675 129.3 105.258 216.365 109.807-1.624-7.797-2.599-15.918-2.599-24.04 0-57.828 46.782-104.934 104.934-104.934 30.213 0 57.502 12.67 76.67 33.137 23.715-4.548 46.456-13.32 66.599-25.34-7.798 24.366-24.366 44.833-46.132 57.827 21.117-2.273 41.584-8.122 60.426-16.243-14.292 20.791-32.161 39.308-52.628 54.253z"></path>
+          </svg>
+        </a>
+        <a class="button share-button" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=">
+          <svg class="svg-inline--fa fa-facebook fa-w-14" aria-hidden="true" data-prefix="fab" data-icon="facebook" role="img" xmlns="http://www.w3.org/2000/svg"
+            viewBox="0 0 448 512" data-fa-i2svg="">
+            <path fill="#3b5998" d="M448 56.7v398.5c0 13.7-11.1 24.7-24.7 24.7H309.1V306.5h58.2l8.7-67.6h-67v-43.2c0-19.6 5.4-32.9 33.5-32.9h35.8v-60.5c-6.2-.8-27.4-2.7-52.2-2.7-51.6 0-87 31.5-87 89.4v49.9h-58.4v67.6h58.4V480H24.7C11.1 480 0 468.9 0 455.3V56.7C0 43.1 11.1 32 24.7 32h398.5c13.7 0 24.8 11.1 24.8 24.7z"></path>
+          </svg>
+        </a>
+        <a class="button share-button" target="_blank" href="">
+          <svg class="svg-inline--fa fa-envelope fa-w-16" aria-hidden="true" data-prefix="fas" data-icon="envelope" role="img" xmlns="http://www.w3.org/2000/svg"
+            viewBox="0 0 512 512" data-fa-i2svg="">
+            <path fill="currentColor" d="M502.3 190.8c3.9-3.1 9.7-.2 9.7 4.7V400c0 26.5-21.5 48-48 48H48c-26.5 0-48-21.5-48-48V195.6c0-5 5.7-7.8 9.7-4.7 22.4 17.4 52.1 39.5 154.1 113.6 21.1 15.4 56.7 47.8 92.2 47.6 35.7.3 72-32.8 92.3-47.6 102-74.1 131.6-96.3 154-113.7zM256 320c23.2.4 56.6-29.2 73.4-41.4 132.7-96.3 142.8-104.7 173.4-128.7 5.8-4.5 9.2-11.5 9.2-18.9v-19c0-26.5-21.5-48-48-48H48C21.5 64 0 85.5 0 112v19c0 7.4 3.4 14.3 9.2 18.9 30.6 23.9 40.7 32.4 173.4 128.7 16.8 12.2 50.2 41.8 73.4 41.4z"></path>
+          </svg>
+        </a>
+      </div>
+    </article>
+  </section>
+
+  <footer class="article-footer">
+    <header style="text-align: center">
+      <h2 class="collapse-margin" style="font-weight: 200; margin-bottom: .2em">
+        Articles on tech, landing great jobs, and more.
+      </h2>
+      <h3 class="collapse-margin" style="font-weight: 300">
+        TripleByte — delivered straight to your inbox
+      </h3>
+    </header>
+
+    <form>
+      <input type="email" class="sign-up" placeholder="you@example.com" />
+      <input class="button" type="submit" value="Get Updates" />
+    </form>
+  </footer>
+
+  <script>
+    document.querySelector('.hero-video').playbackRate = .35
+  </script>
+</body>
+</html>

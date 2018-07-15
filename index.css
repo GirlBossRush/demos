@@ -1,0 +1,272 @@
+*, *::before, *::after {
+  box-sizing: border-box;
+}
+
+html, body {
+  min-height: 100%;
+}
+
+body {
+  margin: 0;
+  padding: 0;
+  font-family: "Avenir Next", "Avenir", "Helvetica", sans-serif;
+  -webkit-font-smoothing: subpixel-antialiased;
+  -moz-osx-font-smoothing: auto;
+  font-size: 18px;
+}
+
+a {
+  text-decoration: none;
+}
+
+a:hover {
+  text-decoration: underline;
+}
+
+.collapse-margin:first-child {
+  margin-top: 0;
+}
+
+.collapse-margin:last-child {
+  margin-top: 0;
+}
+
+section {
+  display: flex;
+  position: relative;
+}
+
+section.hero {
+  min-height: 65vh;
+}
+
+section.content {
+  flex-flow: column;
+}
+
+.video-section {
+  display: flex;
+  position: relative;
+  color: white;
+  font-weight: bold;
+  min-height: 10vh;
+  display: flex;
+  flex-flow: column;
+  padding: 2.5em;
+  justify-content: flex-end;
+  overflow: hidden;
+}
+
+.video-section h1 {
+  font-variant: all-petite-caps;
+  font-size: 6em;
+  margin-bottom: 0;
+  line-height: 1;
+  text-shadow: 1px 0 10px rgba(56, 56, 56, 0.85);
+  letter-spacing: 0.025em;
+  color: rgba(255, 255, 255, 0.82);
+}
+
+.video-section h2 {
+  font-weight: 400;
+  font-variant: small-caps;
+  margin-top: 0;
+  padding-left: .25em;
+  text-shadow: 1px 0 10px #383838;
+  letter-spacing: .05em;
+}
+
+.video-section video {
+  z-index: -1;
+  display: block;
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  height: 100%;
+  object-fit: cover;
+  width: 100%;
+}
+
+.video-section video.flip {
+  transform: scaleX(-1);
+}
+
+article > h1,
+article > h2,
+article > h3,
+article > .center,
+article > blockquote,
+article > p {
+  margin: 1em auto;
+  width: 44rem;
+  max-width: 100%;
+}
+
+article .video-section {
+  margin: 2em 0;
+}
+
+article .video-section h2 {
+  width: 44rem;
+  margin: 0 auto;
+  font-weight: 500;
+  font-size: 2rem;
+}
+
+p.first-letter::first-letter {
+  font-size: 1.25rem;
+  font-family: Georgia, serif;
+}
+
+blockquote {
+  font-weight: bold;
+  padding: 1rem;
+  position: relative;
+}
+
+blockquote::before {
+  content: "“";
+  display: inline-block;
+  font-size: 4rem;
+  font-family: "Helvetica", "Arial", sans-serif;
+  position: absolute;
+  left: -0.6em;
+  opacity: .75;
+}
+
+.article-header {
+  display: flex;
+  margin: 1em auto .75em;
+  width: 44rem;
+  border-bottom: 2px solid #fbfbfb;
+  padding-bottom: 0.75em;
+}
+
+.article-header .avatar {
+  display: inline-block;
+  border-radius: 50%;
+  height: 3.6rem;
+  width: 3.6rem;
+}
+
+.article-header .details {
+  margin-left: 1em;
+  margin-top: .25em;
+}
+
+.article-header .name {
+  font-weight: 500;
+}
+
+.article-header .summary {
+  color: #1d1d1d;
+}
+
+.article-header .date {
+  color: #848484;
+  font-variant: all-small-caps;
+  font-size: .9rem;
+}
+
+.article-footer {
+  background: #1d1d1d;
+  color: white;
+  display: flex;
+  flex-flow: column;
+  align-items: center;
+  padding: 1em 1em 1.5em;
+}
+
+.article-footer form {
+  display: flex;
+}
+
+.article-footer input[type="email"] {
+  padding: 1em;
+  font-size: 0.9rem;
+  height: 3rem;
+  display: inline-block;
+  margin: 0;
+  background: transparent;
+  color: inherit;
+  border: 2px dashed #eee;
+  margin-right: 1em;
+  font-family: inherit;
+  min-width: 270px;
+  max-width: 100%;
+  flex: 0 1 auto;
+}
+
+.article-footer input[type="email"]:focus {
+  outline: none;
+  border-color: white;
+}
+
+.article-footer .button {
+  flex: 0 0 auto;
+  border: none;
+  background: #00d8a6;
+  color: white;
+  font-weight: 500;
+  font-family: inherit;
+  padding: 0 1.3rem;
+  height: 3rem;
+  display: inline-block;
+  font-size: .9rem;
+  margin: 0;
+  font-variant: all-small-caps;
+  font-size: 1.2rem;
+}
+
+.more-links h2 {
+  margin-bottom: 0;
+}
+
+.more-links p {
+  font-size: .95rem;
+}
+
+.share-buttons {
+  display: flex;
+  align-items: center;
+  font-size: 2.2rem;
+  margin-top: 1rem !important;
+}
+
+.share-buttons .share-button {
+  color: #000;
+  height: 1.5rem;
+  width: 1.5rem;
+  flex: 0 0 auto;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 0;
+}
+
+.share-buttons .share-button:not(:last-child) {
+  margin-right: 1rem;
+}
+
+.svg-inline--fa {
+  display: inline-block;
+  font-size: inherit;
+  height: 1.5rem;
+  overflow: visible;
+  vertical-align: -.125em;
+  fill: #fff
+}
+
+.svg-inline--fa.fa-w-10 {
+  width: .625em;
+}
+
+svg:not(:root).svg-inline--fa {
+  overflow: visible;
+}
+
+.svg-inline--fa.fa-w-16 {
+  width: 1.5rem;
+}
