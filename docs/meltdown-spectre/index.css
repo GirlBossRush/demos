@@ -75,9 +75,9 @@ body {
   }
 }
 
-
-small {
-  font-size: .8rem;
+.citation {
+  font-size: .75rem;
+  margin-top: .5rem;
 }
 
 a {
