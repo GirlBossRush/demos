@@ -73,11 +73,10 @@ body {
   margin-top: .5rem;
 }
 
-a {
-  color: inherit;
-}
-
-a:visited {
+a:link,
+a:visited,
+a:hover,
+a:active {
   color: inherit;
 }
 
