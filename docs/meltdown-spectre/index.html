@@ -11,47 +11,50 @@
 </head>
 
 <body>
-  <section class="video-section hero">
-    <div>
-      <h1>Meltdown & Spectre</h1>
-      <h2>The research is in: every computer made in the last 20 years is compromised.</h2>
-    </div>
-    <video class="hero-video flip" autoplay muted loop>
-      <source src="media/glitch.mp4" type="video/mp4"/>
-    </video>
-  </section>
   <section class="content">
     <article>
-      <header class="article-header">
-        <img src="https://miro.medium.com/fit/c/240/240/1*wIb1vM6oHEy4lY1aRVRrxw.jpeg" alt="avatar" class="avatar">
-
-        <div class="details">
-          <div class="name">Teffen Ellis</div>
-          <div class="summary">Seasoned web engineer, benched by my life coach.</div>
-          <div class="date">July 16th, 2018</div>
+      <div class="article-subsection" data-section="intro">
+        <div class="video-section hero" data-section="intro">
+          <div>
+            <h1>Meltdown & Spectre</h1>
+            <h2>The research is in: every computer made in the last 20 years is compromised.</h2>
+          </div>
+          <video class="hero-video flip" autoplay muted loop>
+            <source src="media/glitch.mp4" type="video/mp4"/>
+          </video>
         </div>
-      </header>
+        <header class="article-header">
+          <img src="https://miro.medium.com/fit/c/240/240/1*wIb1vM6oHEy4lY1aRVRrxw.jpeg" alt="avatar" class="avatar">
 
-      <p class="collapse-margin first-letter">
-        In late 2017 a group of <a href="https://meltdownattack.com/" target="_blank">university researchers</a> discovered a critical security flaw described as <em>melting</em> the virtual barriers that keep programs from accessing each other’s data. Researcher Daniel Gruss describes <strong class="subtle">Meltdown</strong> as “probably one of the worst CPU bugs ever found.” Despite Meltdown’s recent discovery, the defect has existed for approximately 20 years, sparking widespread panic in the tech world.
-      </p>
+          <div class="details">
+            <div class="name">Teffen Ellis</div>
+            <div class="summary">Seasoned web engineer, benched by my life coach.</div>
+            <div class="date">July 16th, 2018</div>
+          </div>
+        </header>
 
-      <p>
-        Unlike most reports of software vulnerabilities, Meltdown originates from a common defect in computer processors — the silicon chips that control your electronic devices. Shortly after researchers submitted their findings to Intel, the chip manufacturer was dealt another blow. Researchers Paul Kocher and the team at <a href="https://googleprojectzero.blogspot.com/2018/01/reading-privileged-memory-with-side.html" target="_blank">Project Zero</a> independently reported <strong class="subtle">Spectre</strong>, a similar processor defect with devastating security implications. Experts believe that malicious apps making use of Spectre will be difficult to detect.
-      </p>
+        <p class="collapse-top-margin first-letter">
+          In late 2017 a group of <a href="https://meltdownattack.com/" target="_blank">university researchers</a> discovered a critical security flaw described as <em>melting</em> the virtual barriers that keep programs from accessing each other’s data. Researcher Daniel Gruss describes <strong class="subtle">Meltdown</strong> as “probably one of the worst CPU bugs ever found.” Despite Meltdown’s recent discovery, the defect has existed for approximately 20 years, sparking widespread panic in the tech world.
+        </p>
 
-      <blockquote>
-        Anyone operating mission-critical systems or infrastructure should assume they are vulnerable until they confirm otherwise.
+        <p>
+          Unlike most reports of software vulnerabilities, Meltdown originates from a common defect in computer processors — the silicon chips that control your electronic devices. Shortly after researchers submitted their findings to Intel, the chip manufacturer was dealt another blow. Researchers Paul Kocher and the team at <a href="https://googleprojectzero.blogspot.com/2018/01/reading-privileged-memory-with-side.html" target="_blank">Project Zero</a> independently reported <strong class="subtle">Spectre</strong>, a similar processor defect with devastating security implications. Experts believe that malicious apps making use of Spectre will be difficult to detect.
+        </p>
+
+        <blockquote>
+          Anyone operating mission-critical systems or infrastructure should assume they are vulnerable until they confirm otherwise.
         <div class="citation">— Dima Tokar, CTO of MachNation
           <a href="https://www.greentechmedia.com/articles/read/chip-vulnerabilities-could-affect-grid-hardware">via Greentech Media</a>
         </div>
       </blockquote>
 
-      <p>
+      <p class="collapse-bottom-margin">
         Tech companies are now scrambling to find a solution to patch the vulnerabilities affecting most computers, smart phones, and infrastructure made in past two decades.
       </p>
+    </div>
 
-      <div class="video-section reveal-on-scroll">
+    <div class="article-subsection" data-section="ghost">
+      <div class="video-section reveal-on-scroll" data-section="ghost">
         <div>
           <h2 id="a-ghost-in-the-machine">A Ghost In The Machine</h2>
         </div>
@@ -60,7 +63,7 @@
         </video>
       </div>
 
-      <p>
+      <p class="collapse-top-margin">
         Modern computers process over one hundred thousand instructions per second. Many of these instructions are based on <em>speculative execution</em>, a technical term describing how a computer predicts what instructions will come next. If processor guesses correctly, things feel slightly faster. Incorrect gueses are discarded and the prediction cycle continues.
       </p>
 
@@ -68,39 +71,42 @@
         Spectre attacks manipulate processors into accidentally revealing these predictions. Like Meltdown, both types of attack could theoretically be used to find sensitive information as it’s passed through the computer’s processor. A simple flashlight app could use these processor flaws to secretly read an account number in a recently used bank app. Discovering when a malicious app is using these techniques is incredibly difficult, even with anti-virus software.
       </p>
 
-      <p>
+      <p class="collapse-bottom-margin">
         Researchers have created proof-of-concept apps illustrating how these attacks can steal user data. However, no attacks making use of Meltdown and Spectre have been reported so far. Given the sheer number of vulnerable machines, experts believe Spectre will haunt us for decades to come.
       </p>
+    </div>
 
-      <div class="video-section reveal-on-scroll">
-        <div>
-          <h2 id="imperfect-solutions">Imperfect Solutions</h2>
+      <div class="article-subsection" data-section="solutions">
+        <div class="video-section reveal-on-scroll" data-section="solutions">
+          <div>
+            <h2 id="imperfect-solutions">Imperfect Solutions</h2>
+          </div>
+          <video class="hero-video" autoplay muted loop>
+            <source src="media/digital-grid.mp4" type="video/mp4" />
+          </video>
         </div>
-        <video class="hero-video" autoplay muted loop>
-          <source src="media/digital-grid.mp4" type="video/mp4" />
-        </video>
+
+        <blockquote>
+          ...we’re looking at a ballpark figure of five to 30 per cent slow down, depending on the task and the processor model.
+          <div class="citation">— Leyden and Williams <a href="https://www.theregister.co.uk/2018/01/02/intel_cpu_design_flaw/" target="_blank">via The Register</a></div>
+        </blockquote>
+
+        <p>
+          Since publication of the research, companies such as Microsoft, Apple, and Intel have deployed a dizzying number of software updates to work around the hardware defects. Unfortunately, computer crashes and reduced performance have been reported in high frequency. Researchers explain that the software updates come at a price: slower hardware. Leyden and Williams of <em>The Register</em> benchmarked recent patches with stunning results, “we’re looking at a ballpark figure of five to 30 per cent slow down, depending on the task and the processor model.”
+        </p>
+
+        <p>
+          The trade off between speed and security may not be available to all consumers. Millions of older, unsupported devices will likely not receive any updates. Hardware manufactures may instead recommend buying newer models to lower the chances of becoming a victim to Meltdown and Spectre attacks.
+        </p>
+
+        <p>
+          It’s likely that at-risk devices will remain unpatched for some time. Dima Tokar of security analysis firm MachNation recommends caution and a critical eye. “Anyone operating mission-critical systems or infrastructure should assume they are vulnerable until they confirm otherwise.”
+        </p>
+
+        <p>
+          Systems such as power grids, telecommunications, and emergency services may be hesitant to update costly infrastructure. Health-care solution provider, Coretek Services, reports that hospital customers are foregoing hardware updates ballparked at $1-3.5 million dollars. Director of solution architecture, Brian Barns, explains that slower performance means more hardware: “A customer with 60 servers today would need 100 to 120 if they were to implement that patch.”
+        </p>
       </div>
-
-      <blockquote>
-        ...we’re looking at a ballpark figure of five to 30 per cent slow down, depending on the task and the processor model.
-        <div class="citation">— Leyden and Williams <a href="https://www.theregister.co.uk/2018/01/02/intel_cpu_design_flaw/" target="_blank">via The Register</a></div>
-      </blockquote>
-
-      <p>
-        Since publication of the research, companies such as Microsoft, Apple, and Intel have deployed a dizzying number of software updates to work around the hardware defects. Unfortunately, computer crashes and reduced performance have been reported in high frequency. Researchers explain that the software updates come at a price: slower hardware. Leyden and Williams of <em>The Register</em> benchmarked recent patches with stunning results, “we’re looking at a ballpark figure of five to 30 per cent slow down, depending on the task and the processor model.”
-      </p>
-
-      <p>
-        The trade off between speed and security may not be available to all consumers. Millions of older, unsupported devices will likely not receive any updates. Hardware manufactures may instead recommend buying newer models to lower the chances of becoming a victim to Meltdown and Spectre attacks.
-      </p>
-
-      <p>
-        It’s likely that at-risk devices will remain unpatched for some time. Dima Tokar of security analysis firm MachNation recommends caution and a critical eye. “Anyone operating mission-critical systems or infrastructure should assume they are vulnerable until they confirm otherwise.”
-      </p>
-
-      <p>
-        Systems such as power grids, telecommunications, and emergency services may be hesitant to update costly infrastructure. Health-care solution provider, Coretek Services, reports that hospital customers are foregoing hardware updates ballparked at $1-3.5 million dollars. Director of solution architecture, Brian Barns, explains that slower performance means more hardware: “A customer with 60 servers today would need 100 to 120 if they were to implement that patch.”
-      </p>
 
       <h2>TripleByte Insight</h2>
 
@@ -112,46 +118,60 @@
         As our society becomes more integrated with tech, so does our risk to fraud and data theft. You can reduce your chances of being a victim by taking steps to protect your digital identity — starting with your email account. A memorable, lengthy and unique password for each online account can significantly decrease the chance of an attacker taking control. Many online services can also send a special code to your phone to verify that your password isn’t being use without your permission. This extra verification is recommended for other services such as your bank, Facebook, Instagram, and Dropbox.
       </p>
 
-      <h3 class="collapse-margin">Share the knowledge</h3>
-      <div class="center share-buttons">
-        <a class="button share-button" target="_blank" href="#">
-          <svg class="svg-inline--fa fa-twitter fa-w-16" aria-hidden="true" data-prefix="fab" data-icon="twitter" role="img" xmlns="http://www.w3.org/2000/svg"
-            viewBox="0 0 512 512" data-fa-i2svg="">
-            <path fill="#3aa1f2" d="M459.37 151.716c.325 4.548.325 9.097.325 13.645 0 138.72-105.583 298.558-298.558 298.558-59.452 0-114.68-17.219-161.137-47.106 8.447.974 16.568 1.299 25.34 1.299 49.055 0 94.213-16.568 130.274-44.832-46.132-.975-84.792-31.188-98.112-72.772 6.498.974 12.995 1.624 19.818 1.624 9.421 0 18.843-1.3 27.614-3.573-48.081-9.747-84.143-51.98-84.143-102.985v-1.299c13.969 7.797 30.214 12.67 47.431 13.319-28.264-18.843-46.781-51.005-46.781-87.391 0-19.492 5.197-37.36 14.294-52.954 51.655 63.675 129.3 105.258 216.365 109.807-1.624-7.797-2.599-15.918-2.599-24.04 0-57.828 46.782-104.934 104.934-104.934 30.213 0 57.502 12.67 76.67 33.137 23.715-4.548 46.456-13.32 66.599-25.34-7.798 24.366-24.366 44.833-46.132 57.827 21.117-2.273 41.584-8.122 60.426-16.243-14.292 20.791-32.161 39.308-52.628 54.253z"></path>
-          </svg>
-        </a>
-        <a class="button share-button" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=">
-          <svg class="svg-inline--fa fa-facebook fa-w-14" aria-hidden="true" data-prefix="fab" data-icon="facebook" role="img" xmlns="http://www.w3.org/2000/svg"
-            viewBox="0 0 448 512" data-fa-i2svg="">
-            <path fill="#3b5998" d="M448 56.7v398.5c0 13.7-11.1 24.7-24.7 24.7H309.1V306.5h58.2l8.7-67.6h-67v-43.2c0-19.6 5.4-32.9 33.5-32.9h35.8v-60.5c-6.2-.8-27.4-2.7-52.2-2.7-51.6 0-87 31.5-87 89.4v49.9h-58.4v67.6h58.4V480H24.7C11.1 480 0 468.9 0 455.3V56.7C0 43.1 11.1 32 24.7 32h398.5c13.7 0 24.8 11.1 24.8 24.7z"></path>
-          </svg>
-        </a>
-        <a class="button share-button" target="_blank" href="">
-          <svg class="svg-inline--fa fa-envelope fa-w-16" aria-hidden="true" data-prefix="fas" data-icon="envelope" role="img" xmlns="http://www.w3.org/2000/svg"
-            viewBox="0 0 512 512" data-fa-i2svg="">
-            <path fill="currentColor" d="M502.3 190.8c3.9-3.1 9.7-.2 9.7 4.7V400c0 26.5-21.5 48-48 48H48c-26.5 0-48-21.5-48-48V195.6c0-5 5.7-7.8 9.7-4.7 22.4 17.4 52.1 39.5 154.1 113.6 21.1 15.4 56.7 47.8 92.2 47.6 35.7.3 72-32.8 92.3-47.6 102-74.1 131.6-96.3 154-113.7zM256 320c23.2.4 56.6-29.2 73.4-41.4 132.7-96.3 142.8-104.7 173.4-128.7 5.8-4.5 9.2-11.5 9.2-18.9v-19c0-26.5-21.5-48-48-48H48C21.5 64 0 85.5 0 112v19c0 7.4 3.4 14.3 9.2 18.9 30.6 23.9 40.7 32.4 173.4 128.7 16.8 12.2 50.2 41.8 73.4 41.4z"></path>
-          </svg>
-        </a>
+      <div class="center" style="margin: 2rem auto 0;">
+        <div class="share-group">
+          <div class="emoji-group">
+            <div style="font-size: 3rem">💁</div>
+            <div class="bubble">
+              Tell a friend!
+
+              <div class="share-buttons">
+                <a class="button share-button" target="_blank" href="#">
+                  <svg class="svg-inline--fa fa-twitter fa-w-16" aria-hidden="true" data-prefix="fab" data-icon="twitter" role="img" xmlns="http://www.w3.org/2000/svg"
+                    viewBox="0 0 512 512" data-fa-i2svg="">
+                    <path fill="#3aa1f2" d="M459.37 151.716c.325 4.548.325 9.097.325 13.645 0 138.72-105.583 298.558-298.558 298.558-59.452 0-114.68-17.219-161.137-47.106 8.447.974 16.568 1.299 25.34 1.299 49.055 0 94.213-16.568 130.274-44.832-46.132-.975-84.792-31.188-98.112-72.772 6.498.974 12.995 1.624 19.818 1.624 9.421 0 18.843-1.3 27.614-3.573-48.081-9.747-84.143-51.98-84.143-102.985v-1.299c13.969 7.797 30.214 12.67 47.431 13.319-28.264-18.843-46.781-51.005-46.781-87.391 0-19.492 5.197-37.36 14.294-52.954 51.655 63.675 129.3 105.258 216.365 109.807-1.624-7.797-2.599-15.918-2.599-24.04 0-57.828 46.782-104.934 104.934-104.934 30.213 0 57.502 12.67 76.67 33.137 23.715-4.548 46.456-13.32 66.599-25.34-7.798 24.366-24.366 44.833-46.132 57.827 21.117-2.273 41.584-8.122 60.426-16.243-14.292 20.791-32.161 39.308-52.628 54.253z"></path>
+                  </svg>
+                </a>
+                <a class="button share-button" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=">
+                  <svg class="svg-inline--fa fa-facebook fa-w-14" aria-hidden="true" data-prefix="fab" data-icon="facebook" role="img" xmlns="http://www.w3.org/2000/svg"
+                    viewBox="0 0 448 512" data-fa-i2svg="">
+                    <path fill="#3b5998" d="M448 56.7v398.5c0 13.7-11.1 24.7-24.7 24.7H309.1V306.5h58.2l8.7-67.6h-67v-43.2c0-19.6 5.4-32.9 33.5-32.9h35.8v-60.5c-6.2-.8-27.4-2.7-52.2-2.7-51.6 0-87 31.5-87 89.4v49.9h-58.4v67.6h58.4V480H24.7C11.1 480 0 468.9 0 455.3V56.7C0 43.1 11.1 32 24.7 32h398.5c13.7 0 24.8 11.1 24.8 24.7z"></path>
+                  </svg>
+                </a>
+                <a class="button share-button" target="_blank" href="">
+                  <svg class="svg-inline--fa fa-envelope fa-w-16" aria-hidden="true" data-prefix="fas" data-icon="envelope" role="img" xmlns="http://www.w3.org/2000/svg"
+                    viewBox="0 0 512 512" data-fa-i2svg="">
+                    <path fill="currentColor" d="M502.3 190.8c3.9-3.1 9.7-.2 9.7 4.7V400c0 26.5-21.5 48-48 48H48c-26.5 0-48-21.5-48-48V195.6c0-5 5.7-7.8 9.7-4.7 22.4 17.4 52.1 39.5 154.1 113.6 21.1 15.4 56.7 47.8 92.2 47.6 35.7.3 72-32.8 92.3-47.6 102-74.1 131.6-96.3 154-113.7zM256 320c23.2.4 56.6-29.2 73.4-41.4 132.7-96.3 142.8-104.7 173.4-128.7 5.8-4.5 9.2-11.5 9.2-18.9v-19c0-26.5-21.5-48-48-48H48C21.5 64 0 85.5 0 112v19c0 7.4 3.4 14.3 9.2 18.9 30.6 23.9 40.7 32.4 173.4 128.7 16.8 12.2 50.2 41.8 73.4 41.4z"></path>
+                  </svg>
+                </a>
+              </div>
+            </div>
+          </div>
+
+        </div>
       </div>
 
       <div class="center more-links">
         <h2 id="learn-more-about-handling-meltdown-and-spectre">More Meltdown and Spectre</h2>
 
-        <p class="collapse-margin">
-          <a href="https://spectreattack.com/" target="_blank">An detailed explanation of the vulnerabilities and available updates</a> — Graz University of Technology
-          <br>
-          <a href="https://www.theverge.com/2017/6/17/15772142/how-to-set-up-two-factor-authentication" target="_blank">How to set up two-factor authentication on all your online accounts</a> — The Verge</p>
-        </p>
+        <div class="link-group">
+          <a href="https://spectreattack.com/" target="_blank">An detailed explanation of the vulnerabilities and available updates</a>
+          <div class="source">Graz University of Technology</div>
+        </div>
+        <div class="link-group">
+          <a href="https://www.theverge.com/2017/6/17/15772142/how-to-set-up-two-factor-authentication" target="_blank">How to set up two-factor authentication on all your online accounts</a>
+          <div class="source">The Verge</div>
+        </div>
       </div>
     </article>
   </section>
 
   <footer class="article-footer">
     <header style="text-align: center">
-      <h2 class="collapse-margin" style="font-weight: 200; margin-bottom: .2em">
+      <h2 class="collapse-top-margin" style="font-weight: 200; margin-bottom: .2em">
         Articles on tech, landing great jobs, and more.
       </h2>
-      <h3 class="collapse-margin" style="font-weight: 300">
+      <h3 style="font-weight: 300">
         <span class="mobile-break">TripleByte</span><span class="no-mobile">&nbsp;—&nbsp;</span><span class="mobile-uppercase">d</span>elivered straight to your inbox
       </h3>
     </header>
@@ -164,31 +184,6 @@
 
   <script>
     document.querySelector('.video-section.hero .hero-video').playbackRate = .35
-
-  function isElementPartiallyInViewport(element) {
-    const {left, top, height, width} = element.getBoundingClientRect()
-    const windowHeight = window.innerHeight || document.documentElement.clientHeight
-    const windowWidth = window.innerWidth || document.documentElement.clientWidth
-
-    const inViewVertically = top <= windowHeight && top + height >= 0
-    const inViewHorizontally = left <= windowWidth && left + width >= 0
-
-    return inViewVertically && inViewHorizontally
-  }
-
-  const revealableElements = Array.from(document.querySelectorAll('.reveal-on-scroll'))
-
-  function checkElements () {
-    revealableElements.slice().forEach((element, index) => {
-      if (isElementPartiallyInViewport(element)) {
-        element.classList.add('revealed')
-        revealableElements.splice(index, 1)
-      }
-    })
-  }
-
-  document.addEventListener('scroll', checkElements, {passive: true})
-  checkElements()
   </script>
 </body>
 </html>

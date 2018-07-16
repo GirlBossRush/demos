@@ -68,13 +68,6 @@ body {
   font-size: 16px;
 }
 
-@media print {
-  em {
-    font-weight: normal;
-    font-style: italic;
-  }
-}
-
 .citation {
   font-size: .75rem;
   margin-top: .5rem;
@@ -82,6 +75,10 @@ body {
 
 a {
   text-decoration: none;
+}
+
+a:visited {
+  color: inherit;
 }
 
 a:hover {
@@ -92,12 +89,12 @@ strong.subtle {
   font-weight: 500;
 }
 
-.collapse-margin:first-child {
-  margin-top: 0;
+.collapse-top-margin {
+  margin-top: 0 !important;
 }
 
-.collapse-margin:last-child {
-  margin-top: 0;
+.collapse-bottom-margin {
+  margin-bottom: 0 !important;
 }
 
 section {
@@ -105,7 +102,7 @@ section {
   position: relative;
 }
 
-section.hero {
+.video-section.hero {
   min-height: 65vh;
 }
 
@@ -128,6 +125,26 @@ section.content {
   padding: 3vh;
   justify-content: flex-end;
   overflow: hidden;
+  z-index: 1;
+}
+
+.video-section::after {
+  content: "";
+  position: absolute;
+  right: 0;
+  left: 0;
+  display: block;
+  z-index: 1;
+}
+
+/* .video-section::before {
+  height: 1rem;
+  top: 0;
+} */
+
+.video-section::after {
+  height: 2rem;
+  bottom: 0;
 }
 
 .video-section h1 {
@@ -168,13 +185,18 @@ section.content {
   transform: scaleX(-1);
 }
 
-
 article > h1,
 article > h2,
 article > h3,
 article > .center,
 article > blockquote,
-article > p {
+article > p,
+.article-subsection > h1,
+.article-subsection > h2,
+.article-subsection > h3,
+.article-subsection > .center,
+.article-subsection > blockquote,
+.article-subsection > p {
   margin: 1rem auto;
   width: var(--content-width);
   padding: 0 1rem;
@@ -182,11 +204,16 @@ article > p {
   line-height: var(--content-line-height);
 }
 
-article .video-section {
-  margin: 2em 0;
+.article-subsection {
+  padding-bottom: 1rem;
 }
 
-article .video-section h2 {
+article .video-section:not(.hero) {
+  /* margin: 2em 0; */
+  padding: 7vh 3vh;
+}
+
+article .video-section:not(.hero) h2 {
   width: var(--content-width);
   margin: 0 auto;
   padding: 0 1rem;
@@ -211,7 +238,7 @@ blockquote {
   margin: 1em auto .75em;
   width: var(--content-width);
   padding: 0 1em;
-  border-bottom: 2px solid #fbfbfb;
+  border-bottom: 2px solid #1d1d1d;
   padding-bottom: 0.75em;
 }
 
@@ -233,7 +260,7 @@ blockquote {
 }
 
 .article-header .summary {
-  color: #1d1d1d;
+  color: #e8e8e8;
   font-size: .9rem;
 }
 
@@ -292,19 +319,64 @@ blockquote {
 }
 
 .more-links h2 {
-  margin-bottom: 0;
+  margin: 0;
 }
 
 .more-links p {
   font-size: .95rem;
 }
 
+.more-links a {
+  font-weight: 600;
+}
+
+.more-links .link-group + .link-group {
+  margin-top: .5rem;
+}
+
+.more-links .source {
+  font-size: .9rem;
+}
+
+.emoji-group {
+  display: flex;
+  line-height: 1;
+}
+
+.bubble {
+  display: flex;
+  align-content: center;
+  background-color: whitesmoke;
+  padding: 0 0.8rem;
+  border-radius: 1rem;
+  transform: translate3d(0, -0.8rem, 0);
+  font-weight: 600;
+  position: relative;
+  color: black;
+  margin-left: 1rem;
+  margin-bottom: 1rem;
+  font-size: 1.1rem;
+  line-height: 2.2;
+}
+
+.bubble::before {
+  display: inline-block;
+  position: absolute;
+  content: " ";
+  background-color: whitesmoke;
+  border-radius: 100%;
+  height: 0.5rem;
+  width: 0.5rem;
+  left: -0.6rem;
+  z-index: 5;
+  bottom: 0;
+}
+
 .share-buttons {
   display: flex;
   align-items: center;
   font-size: 2.2rem;
-  margin-top: 1rem !important;
-  padding: 0 .6em !important;
+  padding: 0 0.9rem !important;
 }
 
 .share-buttons .share-button {
@@ -343,7 +415,7 @@ svg:not(:root).svg-inline--fa {
   width: 1.5rem;
 }
 
-.reveal-on-scroll {
+/* .reveal-on-scroll {
   opacity: 0;
   transform: translate3d(0, -1rem, 0);
   transition-duration: .7s;
@@ -354,4 +426,34 @@ svg:not(:root).svg-inline--fa {
 .reveal-on-scroll.revealed {
   transform: translate3d(0, 0, 0);
   opacity: 1;
+} */
+/* .video-section[data-section="ghost"]::before {
+  background-image: linear-gradient(to top, transparent 0% , #fff 100%);
+} */
+
+.article-subsection[data-section="intro"] {
+  background: #010001;
+  color: white;
+}
+
+.video-section[data-section="intro"]::after {
+  background-image: linear-gradient(to bottom, transparent 0% , #010001 100%);
+}
+
+.article-subsection[data-section="ghost"] {
+  background: #081b2a;
+  color: white;
+}
+
+.video-section[data-section="ghost"]::after {
+  background-image: linear-gradient(to bottom, transparent 0% , #081b2a 100%);
+}
+
+.article-subsection[data-section="solutions"] {
+  background: #181f27;
+  color: white;
+}
+
+.video-section[data-section="solutions"]::after {
+  background-image: linear-gradient(to bottom, transparent 0% , #181f27 100%);
 }
