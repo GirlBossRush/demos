@@ -271,7 +271,7 @@ blockquote {
 }
 
 .article-footer {
-  background: #1d1d1d;
+  background: #233240;
   color: white;
   display: flex;
   flex-flow: column;
@@ -306,7 +306,7 @@ blockquote {
 .article-footer .button {
   flex: 0 0 auto;
   border: none;
-  background: #00d8a6;
+  background: #409dcd;
   color: white;
   font-weight: 500;
   font-family: inherit;
