@@ -73,10 +73,9 @@ body {
   margin-top: .5rem;
 }
 
-/* a {
-  text-decoration: none;
-  font-weight: 500;
-} */
+a {
+  color: inherit;
+}
 
 a:visited {
   color: inherit;
