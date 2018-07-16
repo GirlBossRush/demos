@@ -14,7 +14,7 @@
   <section class="video-section hero">
     <div>
       <h1>Meltdown & Spectre</h1>
-      <h2>The research is in: every computer made in the last 30 years is comprimised.</h2>
+      <h2>The research is in: every computer made in the last 20 years is compromised.</h2>
     </div>
     <video class="hero-video flip" autoplay muted loop>
       <source src="media/glitch.mp4" type="video/mp4"/>
@@ -33,15 +33,15 @@
       </header>
 
       <p class="collapse-margin first-letter">
-        In late 2017 a group of university researchers discovered  &quot;Meltdown&quot;, a critical security flaw described as melting the virtual barriers that keep programs from accessing each other&#39;s data. Coincidentally, three other independent research groups have discovered similar security flaws in just a few months of each other, sparking widespread panic in the tech world.
+        In late 2017 a group of <a href="https://meltdownattack.com/" target="_blank">university researchers</a> discovered a critical security flaw described as <em>melting</em> the virtual barriers that keep programs from accessing each other’s data. Researcher Daniel Gruss describes <strong class="subtle">Meltdown</strong> as “probably one of the worst CPU bugs ever found.” Despite Meltdown’s recent discovery, the defect has existed for approximately 20 years, sparking widespread panic in the tech world.
       </p>
 
       <p>
-        Unlike most reports of software vulnerabilities, Meltdown originates from a common defect in computer processors — the silicon chips that power your devices. Shortly after researchers submitted their findings to Intel, the chip manufacturer was dealt another blow. Researchers Paul Kocher and the team at Project Zero independently reported &quot;Spectre&quot;, a similar hardware defect with devastating security implications.
+        Unlike most reports of software vulnerabilities, Meltdown originates from a common defect in computer processors — the silicon chips that control your electronic devices. Shortly after researchers submitted their findings to Intel, the chip manufacturer was dealt another blow. Researchers Paul Kocher and the team at <a href="https://googleprojectzero.blogspot.com/2018/01/reading-privileged-memory-with-side.html" target="_blank">Project Zero</a> independently reported <strong class="subtle">Spectre</strong>, a similar processor defect with devastating security implications. Experts believe that malicious apps making use of Spectre will be difficult to detect.
       </p>
 
       <p>
-        Tech companies are now scrambling to find a solution to patch the vulnerabilities affecting most computers, tablets, and smart phones made in the past 30 years.
+        Tech companies are now scrambling to find a solution to patch the vulnerabilities affecting most computers, tablets, and smart phones made in past two decades.
       </p>
 
       <div class="video-section">
@@ -54,13 +54,16 @@
       </div>
 
       <p>
-        Spectre makes use of a defect in a processor&#39;s <em>speculative execution</em>, a technical term used to describe the predictions computers make to increase performance. Whether it&#39;s opening the Facebook app; taking a selfie; or checking your email; the tasks are common enough that a processor can predict what a user will do before they even decide to. If processor guesses correctly, things feel slightly faster.
+        Modern computers process over one hundred thousand instructions per second. Many of these instructions are based on <em>speculative execution</em>, a technical term describing how a computer predicts what instructions will come next. If processor guesses correctly, things feel slightly faster. Incorrect gueses are discarded and the prediction cycle continues.
       </p>
 
       <p>
-        Spectre attacks manipulate other apps into accidentally revealing their own private data. Like Meltdown, both types of attack could theoretically be used to find sensitive information as it&#39;s passed through the computer&#39;s processor. A simple flashlight app could use these processor flaws to secretly read an account number in a recently used bank app. Discovering when a malicious app is using these techniques is incredibly difficult, even with an anti-virus.
+        Spectre attacks manipulate processors into accidentally revealing these predictions. Like Meltdown, both types of attack could theoretically be used to find sensitive information as it’s passed through the computer’s processor. A simple flashlight app could use these processor flaws to secretly read an account number in a recently used bank app. Discovering when a malicious app is using these techniques is incredibly difficult, even with anti-virus software.
       </p>
 
+      <p>
+        Researchers have created proof-of-concept apps illustrating how these attacks can steal user data. However, no attacks making use of Meltdown and Spectre have been reported so far. Given the sheer number of vulnerable machines, experts believe Spectre will haunt us for decades to come.
+      </p>
 
       <div class="video-section">
         <div>
@@ -71,32 +74,43 @@
         </video>
       </div>
 
-      <p>
-        Since publication of the research, companies such as Microsoft, Apple, and Intel have deployed a dizzying number of software updates to work around the hardware defects. Unfortunately reports of computer crashes and reduced performance have been in high frequency. Researchers explain that the software updates come at a price: slower hardware.
-      </p>
-
       <blockquote>
-        ...we&#39;re looking at a ballpark figure of five to 30 per cent slow down, depending on the task and the processor model.
-        <a href="https://www.theregister.co.uk/2018/01/02/intel_cpu_design_flaw/">The Register</a>
+        ...we’re looking at a ballpark figure of five to 30 per cent slow down, depending on the task and the processor model.
+        <small>— Leyden and Williams <a href="https://www.theregister.co.uk/2018/01/02/intel_cpu_design_flaw/">via The Register</a></small>
       </blockquote>
 
       <p>
-        The trade off between speed and security may not be available to all consumers. Millions of older, unsupported devices will most likely not receive any updates. Hardware manufactures may instead recommend buying newer models to lower the chances of becoming a victim to Meltdown and Spectre attacks.
+        Since publication of the research, companies such as Microsoft, Apple, and Intel have deployed a dizzying number of software updates to work around the hardware defects. Unfortunately, computer crashes and reduced performance have been reported in high frequency. Researchers explain that the software updates come at a price: slower hardware. Leyden and Williams of <em>The Register</em> benchmarked recent patches with stunning results, “we’re looking at a ballpark figure of five to 30 per cent slow down, depending on the task and the processor model.”
       </p>
 
       <p>
-        Researchers are still learning more about the damage done and software updates are still being released. Computers have been vulnerable to Meltdown and Spectre for decades and many will remain unpatched. You can reduce your chances of being a victim by taking steps to protect your digital identity — starting with your email account. A memorable, lengthy and unique password for each online account can significantly decrease the chances of an attacker taking control. Many online services can also send a special code to your phone to verify that your password isn&#39;t being use without your permission. This extra verification is recommended for other services such as your bank, Facebook, Instagram, and Dropbox.
+        The trade off between speed and security may not be available to all consumers. Millions of older, unsupported devices will likely not receive any updates. Hardware manufactures may instead recommend buying newer models to lower the chances of becoming a victim to Meltdown and Spectre attacks.
       </p>
 
-      <div class="center more-links">
-        <h2 id="learn-more-about-handling-meltdown-and-spectre">More Meltdown and Spectre</h2>
+      <blockquote>
+        Anyone operating mission-critical systems or infrastructure should assume they are vulnerable until they confirm otherwise.
+        <small>— Dima Tokar, CTO of MachNation
+          <a href="https://www.greentechmedia.com/articles/read/chip-vulnerabilities-could-affect-grid-hardware">via Greentech Media</a>
+        </small>
+      </blockquote>
 
-        <p class="collapse-margin">
-          <a href="https://spectreattack.com/">An detailed explanation of the vulnerabilities and available updates</a> — Graz University of Technology
-          <br>
-          <a href="https://www.theverge.com/2017/6/17/15772142/how-to-set-up-two-factor-authentication">How to set up two-factor authentication on all your online accounts</a> — The Verge</p>
-        </p>
-      </div>
+      <p>
+        It’s likely that at-risk devices will remain unpatched for some time. Dima Tokar of security analysis firm MachNation recommends caution and a critical eye. “Anyone operating mission-critical systems or infrastructure should assume they are vulnerable until they confirm otherwise.”
+      </p>
+
+      <p>
+        Mission critical systems such as power grids, telecommunications, and emergency services may be hesitant to update costly infrastructure. Health-care solution provider, Coretek Services, reports that hospital customers are foregoing hardware updates ballparked at $1-3.5 million dollars. Director of solution architecture, Brian Barns, explains that slower performance means more hardware: “A customer with 60 servers today would need 100 to 120 if they were to implement that patch.”
+      </p>
+
+      <h2>TripleByte Insight</h2>
+
+      <p>
+        It ultimately remains to be seen what kind of risks and consequences will arise from Meltdown and Spectre. Researchers are still learning more about the situation, and software updates are still being released.
+      </p>
+
+      <p>
+        As our society becomes more integrated with tech, so does our risk to fraud and data theft. You can reduce your chances of being a victim by taking steps to protect your digital identity — starting with your email account. A memorable, lengthy and unique password for each online account can significantly decrease the chance of an attacker taking control. Many online services can also send a special code to your phone to verify that your password isn’t being use without your permission. This extra verification is recommended for other services such as your bank, Facebook, Instagram, and Dropbox.
+      </p>
 
       <h3 class="collapse-margin">Share the knowledge</h3>
       <div class="center share-buttons">
@@ -118,6 +132,16 @@
             <path fill="currentColor" d="M502.3 190.8c3.9-3.1 9.7-.2 9.7 4.7V400c0 26.5-21.5 48-48 48H48c-26.5 0-48-21.5-48-48V195.6c0-5 5.7-7.8 9.7-4.7 22.4 17.4 52.1 39.5 154.1 113.6 21.1 15.4 56.7 47.8 92.2 47.6 35.7.3 72-32.8 92.3-47.6 102-74.1 131.6-96.3 154-113.7zM256 320c23.2.4 56.6-29.2 73.4-41.4 132.7-96.3 142.8-104.7 173.4-128.7 5.8-4.5 9.2-11.5 9.2-18.9v-19c0-26.5-21.5-48-48-48H48C21.5 64 0 85.5 0 112v19c0 7.4 3.4 14.3 9.2 18.9 30.6 23.9 40.7 32.4 173.4 128.7 16.8 12.2 50.2 41.8 73.4 41.4z"></path>
           </svg>
         </a>
+      </div>
+
+      <div class="center more-links">
+        <h2 id="learn-more-about-handling-meltdown-and-spectre">More Meltdown and Spectre</h2>
+
+        <p class="collapse-margin">
+          <a href="https://spectreattack.com/">An detailed explanation of the vulnerabilities and available updates</a> — Graz University of Technology
+          <br>
+          <a href="https://www.theverge.com/2017/6/17/15772142/how-to-set-up-two-factor-authentication">How to set up two-factor authentication on all your online accounts</a> — The Verge</p>
+        </p>
       </div>
     </article>
   </section>
