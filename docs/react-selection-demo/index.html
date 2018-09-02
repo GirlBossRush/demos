@@ -1,0 +1,358 @@
+<html lang="en">
+
+<head>
+
+  <meta charset="UTF-8">
+  <title>Selection with React</title>
+
+
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/5.0.0/normalize.min.css">
+
+
+<style>
+  body {
+    padding: 2rem;
+    font-size: 16px;
+  }
+
+  [data-sentiment='negative'] {
+    background-color: #f00;
+    color: #fff;
+  }
+
+  [data-sentiment='neutral'] {
+    background-color: #ff0;
+  }
+
+  [data-sentiment='positive'] {
+    background-color: #90ee90;
+    color: #fff;
+  }
+
+  .text-content {
+    white-space: pre-wrap;
+  }
+
+  .mark-component {
+    display: inline;
+    position: relative;
+    transition: outline-color 0.15s ease-in-out;
+    outline: 1px solid transparent;
+  }
+
+  .mark-component:hover {
+    outline-color: rgba(0, 0, 0, 0.3);
+  }
+
+  .mark-component:hover .action-picker {
+    display: flex;
+  }
+
+  .mark-component .action-picker {
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+    display: none;
+    align-items: center;
+    position: absolute;
+    right: 0;
+    padding: 0.5rem 1rem 1rem;
+    background-color: rgba(255, 255, 255, 0.4);
+  }
+
+  .mark-component .action-picker .action {
+    cursor: pointer;
+    text-align: center;
+    transition: border-color 0.15s ease-in-out;
+    border: 1px solid rgba(0, 0, 0, 0.3);
+    border-radius: 3px;
+    font-size: 0.85rem;
+    height: 0.85rem;
+    width: 0.85rem;
+  }
+
+  .mark-component .action-picker .action.remove {
+    background: #fff;
+    color: #000;
+  }
+
+  .mark-component .action-picker .action:hover {
+    border-color: rgba(0, 0, 0, 0.5);
+  }
+
+  .mark-component .action-picker .action+.action {
+    margin-left: 5px;
+  }
+
+  .chat-entry {
+    border: 1px dashed #add8e6;
+    padding: 0.5rem;
+  }
+
+  .chat-entry+.chat-entry {
+    margin-top: 0.5rem;
+  }
+
+  .chat-entry header {
+    display: flex;
+  }
+
+  .chat-entry .date {
+    font-size: 0.8rem;
+    flex: 0 0 auto;
+    margin-right: 0.5rem;
+  }
+
+  .chat-entry .entry-body {
+    display: flex;
+    align-items: baseline;
+  }
+</style>
+</head>
+
+<body translate="no">
+
+  <main>
+  </main>
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/react/16.4.2/umd/react.production.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/react-dom/16.4.2/umd/react-dom.production.min.js"></script>
+
+
+
+<script>
+  var __extends = (this && this.__extends) || (function () {
+    var extendStatics = Object.setPrototypeOf ||
+      ({__proto__: []} instanceof Array && function (d, b) {d.__proto__ = b;}) ||
+      function (d, b) {for (var p in b) if (b.hasOwnProperty(p)) d[p] = b[p];};
+    return function (d, b) {
+      extendStatics(d, b);
+      function __() {this.constructor = d;}
+      d.prototype = b === null ? Object.create(b) : (__.prototype = b.prototype, new __());
+    };
+  })();
+  function uniqueID() {
+    return '_' + Math.random().toString(36).substr(2, 9);
+  }
+  var MarkWithActions = /** @class */ (function (_super) {
+    __extends(MarkWithActions, _super);
+    function MarkWithActions() {
+      return _super !== null && _super.apply(this, arguments) || this;
+    }
+    MarkWithActions.prototype.render = function () {
+      var mark = this.props.mark;
+      return React.createElement("mark", {className: 'mark-component', "data-mark-id": mark.id, "data-sentiment": mark.sentiment},
+        React.createElement("span", {className: 'text-content'}, this.props.children),
+        React.createElement("div", {className: 'action-picker'},
+          React.createElement("span", {onClick: this.props.onSentimentChange.bind(null, 'negative'), className: 'action', "data-sentiment": 'negative'}),
+          React.createElement("span", {onClick: this.props.onSentimentChange.bind(null, 'neutral'), className: 'action', "data-sentiment": 'neutral'}),
+          React.createElement("span", {onClick: this.props.onSentimentChange.bind(null, 'positive'), className: 'action', "data-sentiment": 'positive'}),
+          React.createElement("span", {onClick: this.props.onSentimentChange.bind(null, null), className: 'action remove'}, "X")));
+    };
+    return MarkWithActions;
+  }(React.Component));
+  var Highlightable = /** @class */ (function (_super) {
+    __extends(Highlightable, _super);
+    function Highlightable() {
+      return _super !== null && _super.apply(this, arguments) || this;
+    }
+    Highlightable.prototype.render = function () {
+      var entry = this.props.entry;
+      var marks = Object.keys(entry.marks)
+        .map(function (id) {return entry.marks[id];})
+        .sort(function (a, b) {return a.start - b.start;});
+      var children = [];
+      var textSoFar = '';
+      var currentMark;
+      for (var i = 0; i < entry.message.length; i++) {
+        var character = entry.message[i];
+        var isLastCharacter = i === entry.message.length - 1;
+        if ((marks.length && marks[0].start === i) || (isLastCharacter && !currentMark)) {
+          if (isLastCharacter) {
+            textSoFar += character;
+          }
+          if (textSoFar) {
+            children.push(React.createElement("span", {className: 'text-content'}, textSoFar));
+            textSoFar = '';
+          }
+          currentMark = marks.shift();
+        }
+        textSoFar += character;
+        if (currentMark && currentMark.end === i + 1) {
+          children.push(React.createElement(MarkWithActions, {mark: currentMark, onSentimentChange: this.props.onSentimentChange.bind(null, currentMark.id)}, textSoFar));
+          currentMark = undefined;
+          textSoFar = '';
+        }
+      }
+      return React.createElement("div", {className: 'highlightable'}, children);
+    };
+    return Highlightable;
+  }(React.Component));
+  var ChatLog = /** @class */ (function (_super) {
+    __extends(ChatLog, _super);
+    function ChatLog() {
+      var _this = _super !== null && _super.apply(this, arguments) || this;
+      _this.highlightableRefs = [];
+      _this.state = {
+        log: [
+          {
+            id: 1,
+            user: 'Jessie Lorem',
+            message: 'And so she gets she sends them back every month, but my son\'s boy three so I send them back every two months.',
+            marks: {
+              '_afdf3fe2': {id: '_afdf3fe2', start: 20, end: 47, sentiment: 'positive'}
+            },
+            createdAt: new Date(1535350083495)
+          },
+          {
+            id: 2,
+            user: 'Klein Ipsum',
+            message: 'kay, so you which plan you choose and tell me about the plan you chose any other plans.',
+            marks: {
+              '_afdf3fe1': {id: '_afdf3fe1', start: 27, end: 45, sentiment: 'neutral'},
+            },
+            createdAt: new Date(1525340083495)
+          },
+          {
+            id: 3,
+            user: 'Jessie Ipsum',
+            message: 'I chose the $25 plan and it\'s every two months that I get to send them back.',
+            marks: {
+              '_afdf3fe1': {id: '_afdf3fe1', start: 25, end: 46, sentiment: 'negative'},
+            },
+            createdAt: new Date(1525340083495)
+          }
+        ]
+      };
+      _this.handleSelection = function () {
+        var selection = window.getSelection();
+        if (selection.isCollapsed)
+          return;
+        var log = _this.state.log;
+        var _loop_1 = function (i) {
+          var range = selection.getRangeAt(i);
+          var position = selection.anchorNode.compareDocumentPosition(selection.focusNode);
+          var isLeftToRight;
+          if (selection.anchorNode === selection.extentNode) {
+            isLeftToRight = selection.anchorOffset < selection.extentOffset;
+          }
+          else {
+            isLeftToRight = selection.anchorNode === range.startContainer;
+          }
+          log.forEach(function (entry, i) {
+            var entryElement = _this.highlightableRefs[i].current;
+            var elementsWithText = Array.from(entryElement.querySelectorAll('.text-content'));
+            if (!selection.containsNode(entryElement, true))
+              return;
+            // Clear marks contained in selection.
+            var nextMarks = {};
+            Object.keys(entry.marks).forEach(function (id) {
+              var markElement = entryElement.querySelector("mark[data-mark-id=" + id + "]");
+              return markElement && !selection.containsNode(markElement, true) && !markElement.contains(selection.baseNode);
+            });
+            entry.marks = nextMarks;
+            var bounds = {
+              startNode: isLeftToRight ? selection.anchorNode : selection.focusNode,
+              startOffset: isLeftToRight ? selection.anchorOffset : selection.focusOffset,
+              endNode: isLeftToRight ? selection.focusNode : selection.anchorNode,
+              endOffset: isLeftToRight ? selection.focusOffset : selection.anchorOffset
+            };
+            var newMark = {
+              id: uniqueID(),
+              start: 0,
+              sentiment: 'neutral',
+              end: entry.message.length
+            };
+            // Calculate combined text offset left of selection.
+            if (entryElement.contains(bounds.startNode)) {
+              var textOffset = 0;
+              for (var _i = 0, elementsWithText_1 = elementsWithText; _i < elementsWithText_1.length; _i++) {
+                var elementWithText = elementsWithText_1[_i];
+                if (elementWithText.contains(bounds.startNode)) {
+                  textOffset += bounds.startOffset;
+                  break;
+                }
+                else {
+                  textOffset += elementWithText.textContent.length;
+                }
+              }
+              newMark.start = textOffset;
+            }
+            // Calculate combined text offset right of selection.
+            if (entryElement.contains(bounds.endNode)) {
+              var textOffset = 0;
+              for (var _a = 0, elementsWithText_2 = elementsWithText; _a < elementsWithText_2.length; _a++) {
+                var elementWithText = elementsWithText_2[_a];
+                if (elementWithText.contains(bounds.endNode)) {
+                  textOffset += bounds.endOffset;
+                  break;
+                }
+                else {
+                  textOffset += elementWithText.textContent.length;
+                }
+              }
+              newMark.end = textOffset;
+            }
+            entry.marks[newMark.id] = newMark;
+          });
+        };
+        for (var i = 0; i < selection.rangeCount; i++) {
+          _loop_1(i);
+        }
+        _this.setState({log: log}, function () {
+          selection.removeAllRanges();
+        });
+      };
+      return _this;
+    }
+    ChatLog.prototype.changeMarkSentiment = function (entryIndex, markID, value) {
+      var log = this.state.log;
+      var entry = log[entryIndex];
+      if (value === null) {
+        delete entry.marks[markID];
+      }
+      else {
+        entry.marks[markID].sentiment = value;
+      }
+      this.setState({log: log});
+    };
+    ChatLog.prototype.componentDidMount = function () {
+      window.addEventListener('click', this.handleSelection);
+    };
+    ChatLog.prototype.componentWillUnmount = function () {
+      window.removeEventListener('click', this.handleSelection);
+    };
+    ChatLog.prototype.renderLogEntries = function () {
+      var _this = this;
+      var log = this.state.log;
+      this.highlightableRefs = [];
+      return log.map(function (entry, entryIndex) {
+        var ref = _this.highlightableRefs[entryIndex] = React.createRef();
+        return React.createElement("div", {className: 'chat-entry', key: entry.id},
+          React.createElement("header", null,
+            React.createElement("div", {className: 'user'}, entry.user)),
+          React.createElement("div", {className: 'entry-body', ref: ref},
+            React.createElement("div", {className: 'date'}, entry.createdAt.toLocaleTimeString()),
+            React.createElement(Highlightable, {entry: entry, onSentimentChange: _this.changeMarkSentiment.bind(_this, entryIndex)})));
+      });
+    };
+    ChatLog.prototype.render = function () {
+      return React.createElement("div", {className: 'chat-log-component'}, this.renderLogEntries());
+    };
+    return ChatLog;
+  }(React.Component));
+  ReactDOM.render(React.createElement(ChatLog, null), document.querySelector('main'));
+      //# sourceURL=pen.js
+</script>
+
+
+
+
+
+
+
+
+</body>
+
+</html>
